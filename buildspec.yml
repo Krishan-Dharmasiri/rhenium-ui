@@ -6,11 +6,11 @@ phases:
       - aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui
   build:
     commands:
-      - docker build -t rhenium-ui:latest .
+      - docker build -t rhenium-ui .
       - docker tag rhenium-ui:latest 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest
   post_build:
     commands:
       - docker push 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest
-      - printf '[{"name":"rhenium-ecs-task","imageUri":"%s"}]' 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest > imagedefinitions.json
+      - printf '[{"name":"rhenium-ui-docker-image","imageUri":"%s"}]' 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json

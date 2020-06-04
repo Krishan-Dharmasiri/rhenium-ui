@@ -31,7 +31,7 @@ const routes: Routes = [
         component:DashboardComponent
       },
       {
-        path:'posts',
+        path:'predictive',
         component:PostsComponent
       }
     ]
