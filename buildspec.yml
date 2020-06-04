@@ -11,6 +11,6 @@ phases:
   post_build:
     commands:
       - docker push 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest
-      - printf '[{"name":rhenium-ecs-task,"imageUri":"%s"}]' <ECR_URL> > imagedefinitions.json
+      - printf '[{"name":"rhenium-ecs-task","imageUri":"%s"}]' 255321081393.dkr.ecr.ap-southeast-2.amazonaws.com/rhenium-ui:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
